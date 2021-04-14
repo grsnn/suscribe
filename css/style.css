@@ -1,0 +1,231 @@
+:root {
+    --box-shadow-one: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+    --transition: all .3s linear;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #e5e5e5;
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header .logo img {
+    width: 30px;
+}
+
+.header .logo h6 {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.card {
+    width: 700px;
+    max-width: 100%;
+    background-image: linear-gradient(20deg, #3084ff, #1dbdff);
+    border-radius: 5px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card.active {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: all .05s ease;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+}
+
+.text {
+    margin-right: 30px;
+    width: 45%;
+}
+
+.text__title {
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 1.4px 1.4px rgba(0, 0, 0, 0.14);
+}
+
+.text__subtitle {
+    margin: 0;
+    margin-top: 5px;
+    color: #fff;
+    opacity: 0.95;
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.form__input {
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .94);
+    padding: 9px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    color: #5c4400;
+    transition: var(--transition);
+}
+
+.form__input::placeholder {
+    color: #5c4400;
+    opacity: 0.8;
+}
+
+.form__input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .4);
+    transition: var(--transition);
+}
+
+.form__btn {
+    border: none;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .8);
+    background: linear-gradient(to right, #732fdf, #bd00ff);
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.form__btn:hover {
+    color: rgba(255, 255, 255);
+    opacity: 1;
+    transition: var(--transition);
+}
+
+.form__btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .3);
+    transition: var(--transition);
+}
+
+.text.active,
+.form.active {
+    transform: scale(0);
+}
+
+.success {
+    width: 170px;
+    height: 170px;
+    background-color: #00C851;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5;
+    transition: all .05s;
+    transform: scale(0);
+    opacity: 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.success .fas {
+    font-size: 70px;
+    color: #fff;
+}
+
+.success__title {
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+.success.active {
+    transition: var(--transition);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.success.active .fa-exclamation-triangle {
+    display: none;
+}
+
+.success.error {
+    background-color: #ff4444;
+    transition: var(--transition);
+    transform: scale(1);
+    opacity: 1;
+}
+
+.success.error .fa-check {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .text__title {
+        font-size: 23px;
+    }
+    .card {
+        flex-direction: column;
+    }
+    .text {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form {
+        width: 60%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .text__title {
+        font-size: 25px;
+    }
+    .form {
+        width: 100%;
+    }
+    .form__input {
+        padding: 10px 10px;
+    }
+    .form__btn {
+        padding: 9px 10px;
+    }
+}
